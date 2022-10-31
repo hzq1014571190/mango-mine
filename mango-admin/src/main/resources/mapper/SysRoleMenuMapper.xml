@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzq.mapper.SysRoleMenuMapper">
+  <resultMap id="BaseResultMap" type="com.hzq.domain.SysRoleMenu">
+    <!--@mbg.generated-->
+    <!--@Table sys_role_menu-->
+    <id column="id" property="id" />
+    <result column="role_id" property="roleId" />
+    <result column="menu_id" property="menuId" />
+    <result column="create_by" property="createBy" />
+    <result column="create_time" property="createTime" />
+    <result column="last_update_by" property="lastUpdateBy" />
+    <result column="last_update_time" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, role_id, menu_id, create_by, create_time, last_update_by, last_update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_menu
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sys_role_menu
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hzq.domain.SysRoleMenu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role_menu (role_id, menu_id, create_by, create_time, last_update_by, last_update_time
+      )
+    values (#{roleId}, #{menuId}, #{createBy}, #{createTime}, #{lastUpdateBy}, #{lastUpdateTime}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hzq.domain.SysRoleMenu" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId},
+      </if>
+      <if test="menuId != null">
+        #{menuId},
+      </if>
+      <if test="createBy != null">
+        #{createBy},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hzq.domain.SysRoleMenu">
+    <!--@mbg.generated-->
+    update sys_role_menu
+    <set>
+      <if test="roleId != null">
+        role_id = #{roleId},
+      </if>
+      <if test="menuId != null">
+        menu_id = #{menuId},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hzq.domain.SysRoleMenu">
+    <!--@mbg.generated-->
+    update sys_role_menu
+    set role_id = #{roleId},
+      menu_id = #{menuId},
+      create_by = #{createBy},
+      create_time = #{createTime},
+      last_update_by = #{lastUpdateBy},
+      last_update_time = #{lastUpdateTime}
+    where id = #{id}
+  </update>
+</mapper>

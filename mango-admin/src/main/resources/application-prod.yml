@@ -1,0 +1,5 @@
+swagger:
+  enabled: false
+
+server:
+  port: 8002
